@@ -1,42 +1,75 @@
-## File permission security
+#
 umask 022
-
-## Environment Settings
-set path = ( /sbin /usr/sbin /bin /usr/bin /usr/local/bin /usr/local/sbin )
-set recexact
-set autolist
-set matchbeep = ambiguous
+cd $HOME
+#
+alias . "pwd"
+alias c "cls"
+alias cd. "pwd"
+alias cd.. "cd .."
+alias cd/ "cd /"
+alias cd10 "cd ../../../../../../../../../.."
+alias cd2 "cd ../.."
+alias cd3 "cd ../../.."
+alias cd4 "cd ../../../.."
+alias cd5 "cd ../../../../.."
+alias cd6 "cd ../../../../../.."
+alias cd7 "cd ../../../../../../.."
+alias cd8 "cd ../../../../../../../.."
+alias cd9 "cd ../../../../../../../../.."
+alias cdw "cd ~/WWW"
+alias cls "/usr/bin/tput clear"
+alias g "grep --color --mmap -R"
+alias gv "git pull -v"
+alias i "irssi"
+alias k "cd ~/work"
+alias la "ls -al"
+alias less "/usr/bin/less -EmrSw"
+alias more "less"
+alias psm "psu $USER"
+alias psme "ps aux -U repeat"
+alias q "exit"
+alias s "/usr/local/bin/screen -U"
+alias sd "screen -URD"
+alias sl "ls"
+alias ssh "/usr/bin/ssh -4 -C -e none -o ForwardAgent=yes"
+alias v "vim"
+alias vc "v ~/.cshrc"
+alias vv "v ~/.vimrc"
+#
 set autoexpand
-set autocorrect
-set noclobber
-set notify
-set correct = all
-set symlinks = ignore
-set listlinks
-set listjobs
-set rmstar
-set showdots
-set mail = (/var/mail/$USER)
-
-unset autologout
-
-set prompt = "%B%m [%/] -%n- " 
-set prompt2 = "(%t %m)%~ #%% "
-set prompt3 = "%SDo you mean [%R] (y/n/e) ? "
-
-setenv LESS "-srh0Pm-LESS-"
+set autolist
+set history = 5000
+set mail = (1 /var/mail/$USER)
+set path = (~/bin ~)
+set path = ($path /usr/local/bin /usr/local/sbin /usr/X11R6/bin /usr/bin)
+set path = ($path /usr/sbin /usr/games /bin /sbin /stand)
+if ( ! $?WINDOW ) then
+  set prompt = "%{[32m%}%n%{[0m%}@%{[36m%}%m%{[0m%} [%{[32m%}%~%{[0m%}] (%{[36m%}%T%{[0m%}) "
+else
+  set prompt = "%{[32m%}%n%{[0m%}@%{[36m%}%m%{[0m%} [%{[32m%}%~%{[0m%}] [%{[36m%}%T%{[0m%}/%{[36m%}W$WINDOW%{[0m%}] "
+endif
+set savehist = 5000
+#
+set HOSTLIST = `ypcat hosts | awk '{ FS="\t*"; ORS = " "; print $2 }'`
+complete ssh "p/1/($HOSTLIST)/" 'c/-/(l)/' 'p/1/(pixnet root)/'
+#
+setenv BLOCKSIZE "k"
+setenv LANG "zh_TW.UTF-8"
+setenv LC_ALL "zh_TW.UTF-8"
+setenv LESS "-EmrSw"
 setenv LESSCHARDEF "8bcccbcc18b95.."
-# setenv PAGER "less -dEm"
-setenv LC_CTYPE "zh_TW.UTF-8"
-setenv JAVA_HOME "/usr/local"
-
-setenv EDITOR  /usr/local/bin/vim
-setenv BLOCKSIZE K
-
-unalias s
-alias s "ssh -2 -C"
-alias t "telnet -K"
-alias d 'ls -al'
-alias n 'nslookup '
-alias grep 'grep --color'
-alias g grep
+setenv LSCOLORS "gxfxcxdxbxegedabagacad"
+setenv PAGER "/usr/bin/less"
+#
+if ( $OSTYPE == FreeBSD  || $OSTYPE == DragonFly ) then
+  alias colorls "env CLICOLOR_FORCE /bin/ls -aFGg"
+  alias ls "ls-F -aFGg"
+  alias telnet "/usr/local/bin/zh-telnet"
+  setenv EDITOR "/usr/local/bin/vim"
+  setenv VISUAL $EDITOR
+else
+  alias colorls "env CLICOLOR_FORCE /bin/ls -aF --color=always"
+  alias ls "ls-F -aF --color=always"
+  setenv EDITOR "/usr/bin/vim"
+  setenv VISUAL $EDITOR
+endif
