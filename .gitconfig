@@ -1,10 +1,32 @@
 [user]
-name = Your Name
-email = Your Email
+    name =
+    email =
 [color]
-ui = auto
+    ui = auto
+[color "branch"]
+    current = cyan
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = blue bold
+    frag = yellow
+    old = red reverse
+    new = green reverse
+    whitespace = red reverse
+[color "status"]
+    added = yellow
+    untracked = cyan
 [alias]
-	ci = commit
-	co = checkout
-	st = status
-	br = branch
+    br = branch
+    ci = commit
+    co = checkout
+    mn = merge --no-ff
+    mv = move
+    sub = submodule
+    st = status
+    di = diff
+[tig]
+    line-graphics = ascii
+[github]
+    user = repeat
+    token =
