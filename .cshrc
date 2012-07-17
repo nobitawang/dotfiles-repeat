@@ -50,9 +50,6 @@ else
 endif
 set savehist = 5000
 #
-set HOSTLIST = `ypcat hosts | awk '{ FS="\t*"; ORS = " "; print $2 }'`
-complete ssh "p/1/($HOSTLIST)/" 'c/-/(l)/' 'p/1/(pixnet root)/'
-#
 setenv BLOCKSIZE "k"
 setenv LANG "zh_TW.UTF-8"
 setenv LC_ALL "zh_TW.UTF-8"
