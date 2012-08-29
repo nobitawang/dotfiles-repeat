@@ -20,7 +20,6 @@
     br = branch
     ci = commit
     co = checkout
-    fe = fetch
     fp = fetch -p
     mn = merge --no-ff
     mv = move
