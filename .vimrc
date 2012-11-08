@@ -19,6 +19,8 @@ set list
 set listchars=tab:>-,trail:~
 set nobomb
 
+highlight PmenuSel ctermfg=0 ctermbg=3
+
 augroup phpfiletype
     autocmd!
     autocmd FileType php set expandtab
