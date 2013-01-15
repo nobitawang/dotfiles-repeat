@@ -28,6 +28,8 @@
     di = diff
 [tig]
     line-graphics = ascii
+[push]
+    default = simple
 [github]
     user = repeat
     token =
