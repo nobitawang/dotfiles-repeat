@@ -19,6 +19,8 @@ set list
 set listchars=tab:>-,trail:~
 set nobomb
 
+let g:PHP_vintage_case_default_indent = 1
+
 highlight PmenuSel ctermfg=0 ctermbg=3
 
 augroup phpfiletype
