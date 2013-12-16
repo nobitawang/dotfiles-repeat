@@ -26,6 +26,8 @@ highlight PmenuSel ctermfg=0 ctermbg=3
 " 預設值
 set expandtab
 
+autocmd FileType make set noexpandtab softtabstop=8
+
 syntax on
 
 au BufNewFile,BufRead *.phtml set filetype=php
