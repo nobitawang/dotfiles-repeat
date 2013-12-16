@@ -23,15 +23,8 @@ let g:PHP_vintage_case_default_indent = 1
 
 highlight PmenuSel ctermfg=0 ctermbg=3
 
-augroup phpfiletype
-    autocmd!
-    autocmd FileType php set expandtab
-augroup END
-
-augroup tsfiletype
-    autocmd!
-    autocmd FileType ts set expandtab
-augroup END
+" 預設值
+set expandtab
 
 syntax on
 
