@@ -30,6 +30,8 @@
     line-graphics = ascii
 [push]
     default = simple
+[core]
+    quotepath = false
 [github]
     user = repeat
     token =
