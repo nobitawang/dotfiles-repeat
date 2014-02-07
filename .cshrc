@@ -1,3 +1,4 @@
+alias precmd "source ~/.git-branch.csh"
 #
 umask 022
 cd $HOME
@@ -45,11 +46,6 @@ set mail = (1 /var/mail/$USER)
 set path = (~/bin ~)
 set path = ($path /usr/local/bin /usr/local/sbin /usr/X11R6/bin /usr/bin)
 set path = ($path /usr/sbin /usr/games /bin /sbin /stand)
-if ( ! $?WINDOW ) then
-  set prompt = "%{[32m%}%n%{[0m%}@%{[36m%}%m%{[0m%} [%{[32m%}%~%{[0m%}] (%{[36m%}%T%{[0m%}) "
-else
-  set prompt = "%{[32m%}%n%{[0m%}@%{[36m%}%m%{[0m%} [%{[32m%}%~%{[0m%}] [%{[36m%}%T%{[0m%}/%{[36m%}W$WINDOW%{[0m%}] "
-endif
 set savehist = 5000
 #
 setenv BLOCKSIZE "k"
